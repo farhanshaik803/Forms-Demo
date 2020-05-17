@@ -1,0 +1,90 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<div class="box">
+  <h3>    Registration Form</h3><br>
+<form #form ="ngForm">
+  <div class="form-group">
+<input required
+ ngModel 
+ name="userName"
+#userName="ngModel" 
+(change)="displayMessage(userName)" 
+type="text" 
+class="form-control" 
+placeholder="Enter Your Name">
+<div class="alert alert-danger" *ngIf="!userName.valid && userName.touched">
+  <div *ngIf="userName.errors.required">Please enter your Username</div>
+</div>
+</div>
+
+<div class="form-group">
+<input required
+ngModel
+name="userEmail"
+#userEmail="ngModel"
+(change)="displayMessage(userEmail)"
+type="email" 
+class="form-control"
+ placeholder="Enter Your Email">
+ <div class="alert alert-danger"  *ngIf="!userEmail.valid && userEmail.touched">
+  <div *ngIf="userEmail.errors.required">Please enter your Email</div>
+ </div>
+</div>
+
+<div class="form-group">
+  <input required
+  ngModel
+  name="phoneNumber"
+  #phoneNumber="ngModel"
+  (change)="displayMessage(phoneNumber)"
+ 
+  type="number" 
+  
+  class="form-control"
+   placeholder="Enter Your Phone Number">
+   <div class="alert alert-danger"  *ngIf="!phoneNumber.valid && phoneNumber.touched">
+    <div *ngIf="phoneNumber.errors.required">Please enter your Phone Number</div>
+
+   </div>
+  </div>
+
+  <div class="form-group">
+    <input required
+    ngModel
+    name="userAddress"
+    #userAddress="ngModel"
+    (change)="displayMessage(userAddress)"
+    type="text"
+    class="form-control"
+     placeholder="Enter Your Address">
+     <div class="alert alert-danger"  *ngIf="!userAddress.valid && userAddress.touched">
+      <div *ngIf="userAddress.errors.required">Please enter your address</div>
+     </div>
+    </div>
+
+    <div class="form-group form-control" ngModel aria-required="true">
+
+      <select>
+        <option value="location">Select Your Location
+
+        </option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Agra">Agra</option>
+        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+      </select>
+    </div>
+    <div class="form-group form-control">
+      <input ngModel required
+      name="gender" type="radio" value="male">Male
+      <input ngModel required
+      name="gender" type="radio" value="female">Female
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!form.form.valid" > Submit </button>
+    
+</form>
+</div>
+ 
